@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,11 @@
 		6D2391262708B2510083E6D0 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2391252708B2510083E6D0 /* SettingViewController.swift */; };
 		6D2391282708B3E20083E6D0 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2391272708B3E20083E6D0 /* TabBarViewController.swift */; };
 		6D23912A270A8DDF0083E6D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6D239129270A8DDF0083E6D0 /* GoogleService-Info.plist */; };
+		6D23912C270B530D0083E6D0 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D23912B270B530D0083E6D0 /* Const.swift */; };
+		6D23912F270BCE160083E6D0 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D23912E270BCE160083E6D0 /* PostData.swift */; };
+		6D239132270BCEE70083E6D0 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D239130270BCEE70083E6D0 /* PostTableViewCell.swift */; };
+		6D239133270BCEE70083E6D0 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D239131270BCEE70083E6D0 /* PostTableViewCell.xib */; };
+		6DBE43EF270DC7D400933DA9 /* commentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBE43EE270DC7D400933DA9 /* commentViewController.swift */; };
 		AB9556A477DE447CB05F81D1 /* Pods_instagramapp2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89C90896AABFD453168288BB /* Pods_instagramapp2.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +43,11 @@
 		6D2391252708B2510083E6D0 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		6D2391272708B3E20083E6D0 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		6D239129270A8DDF0083E6D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6D23912B270B530D0083E6D0 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		6D23912E270BCE160083E6D0 /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
+		6D239130270BCEE70083E6D0 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		6D239131270BCEE70083E6D0 /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
+		6DBE43EE270DC7D400933DA9 /* commentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commentViewController.swift; sourceTree = "<group>"; };
 		89C90896AABFD453168288BB /* Pods_instagramapp2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_instagramapp2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEEB4AEA471699F9D3EF89CB /* Pods-instagramapp2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instagramapp2.release.xcconfig"; path = "Target Support Files/Pods-instagramapp2/Pods-instagramapp2.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -60,7 +70,6 @@
 				3DD4FBC6DD3144C8891C4164 /* Pods-instagramapp2.debug.xcconfig */,
 				BEEB4AEA471699F9D3EF89CB /* Pods-instagramapp2.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -95,13 +104,18 @@
 			isa = PBXGroup;
 			children = (
 				6D2391092708AF970083E6D0 /* AppDelegate.swift */,
+				6D23912E270BCE160083E6D0 /* PostData.swift */,
+				6D239130270BCEE70083E6D0 /* PostTableViewCell.swift */,
+				6D239131270BCEE70083E6D0 /* PostTableViewCell.xib */,
 				6D23910B2708AF970083E6D0 /* SceneDelegate.swift */,
 				6D23911D2708B1E10083E6D0 /* LoginViewController.swift */,
 				6D23911F2708B2160083E6D0 /* HomeViewController.swift */,
+				6DBE43EE270DC7D400933DA9 /* commentViewController.swift */,
 				6D2391212708B22C0083E6D0 /* ImageSelectViewController.swift */,
 				6D2391232708B2400083E6D0 /* PostViewController.swift */,
 				6D2391252708B2510083E6D0 /* SettingViewController.swift */,
 				6D23910F2708AF970083E6D0 /* Main.storyboard */,
+				6D23912B270B530D0083E6D0 /* Const.swift */,
 				6D2391272708B3E20083E6D0 /* TabBarViewController.swift */,
 				6D2391122708AF980083E6D0 /* Assets.xcassets */,
 				6D2391142708AF980083E6D0 /* LaunchScreen.storyboard */,
@@ -170,6 +184,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D2391162708AF980083E6D0 /* LaunchScreen.storyboard in Resources */,
+				6D239133270BCEE70083E6D0 /* PostTableViewCell.xib in Resources */,
 				6D23912A270A8DDF0083E6D0 /* GoogleService-Info.plist in Resources */,
 				6D2391132708AF980083E6D0 /* Assets.xcassets in Resources */,
 				6D2391112708AF970083E6D0 /* Main.storyboard in Resources */,
@@ -225,14 +240,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D239132270BCEE70083E6D0 /* PostTableViewCell.swift in Sources */,
 				6D2391282708B3E20083E6D0 /* TabBarViewController.swift in Sources */,
 				6D2391222708B22C0083E6D0 /* ImageSelectViewController.swift in Sources */,
 				6D2391202708B2160083E6D0 /* HomeViewController.swift in Sources */,
+				6DBE43EF270DC7D400933DA9 /* commentViewController.swift in Sources */,
 				6D2391242708B2400083E6D0 /* PostViewController.swift in Sources */,
 				6D2391262708B2510083E6D0 /* SettingViewController.swift in Sources */,
+				6D23912F270BCE160083E6D0 /* PostData.swift in Sources */,
 				6D23911E2708B1E10083E6D0 /* LoginViewController.swift in Sources */,
 				6D23910A2708AF970083E6D0 /* AppDelegate.swift in Sources */,
 				6D23910C2708AF970083E6D0 /* SceneDelegate.swift in Sources */,
+				6D23912C270B530D0083E6D0 /* Const.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
