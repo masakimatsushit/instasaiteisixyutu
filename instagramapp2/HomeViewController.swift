@@ -68,6 +68,9 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
         cell.setPostData(postArray[indexPath.row])
         // セル内のボタンのアクションをソースコードで設定する
         cell.likeButton.addTarget(self, action:#selector(handleButton(_:forEvent:)), for: .touchUpInside)
+        
+        
+        cell.commentbutton.addTarget(self, action:#selector(commentbutton(_:forEvent:)), for: .touchUpInside)
         return cell
     }
     // セル内のボタンがタップされた時に呼ばれるメソッド
@@ -98,33 +101,53 @@ class HomeViewController: UIViewController,UITableViewDataSource,UITableViewDele
             postRef.updateData(["likes": updateValue])
         }
     }
-    
-    //セルをタップしたら...のメソッド
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    @objc func commentbutton(_ sender: UIButton, forEvent event: UIEvent){
+        print("DEBUG_PRINT: commentボタンがタップされました。")
+        // タップされたセルのインデックスを求める
+        let touch = event.allTouches?.first
+        let point = touch!.location(in: self.tableView)
+        let indexPath = tableView.indexPathForRow(at: point)
+        // 配列からタップされたインデックスのデータを取り出す
+        let postData = postArray[indexPath!.row]
+
+        var alertTextField: UITextField?
         
-        // タップされたセルの行番号を出力
-        print("\(indexPath.row)番目の行が選択されました。")
-        
-        let postData = postArray[indexPath.row]
-        
-        postDataToSend = postData
-        
-        self.performSegue(withIdentifier: "Article", sender: tableView)
-        //セルの選択を解除
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-    }
-    
-    var postDataToSend: PostData?
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Article" {
-            let nextVC = segue.destination as! commentViewController
-            if let postData = postDataToSend {
-                nextVC.setPostData(postData)
+        let alert = UIAlertController(
+            title: "コメント",
+            message: "コメントを入力する",
+            preferredStyle: UIAlertController.Style.alert)
+        alert.addTextField(
+            configurationHandler: {(textField: UITextField!) in
+                alertTextField = textField
+            })
+        alert.addAction(
+            UIAlertAction(
+                title: "Cancel",
+                style: UIAlertAction.Style.cancel,
+                handler: nil))
+        alert.addAction(
+            UIAlertAction(
+                title: "OK",
+                style: UIAlertAction.Style.default) { _ in
+                if let text = alertTextField?.text{
+                    if let name = Auth.auth().currentUser?.displayName {
+                        let comment = "\(name)  \(text)"
+                        // 更新データを作成する
+                        var updateValue2: FieldValue
+                        updateValue2 = FieldValue.arrayUnion(["\(comment)\n"])
+                        
+                        let postRef2 = Firestore.firestore().collection(Const.PostPath).document(postData.id)
+                        postRef2.updateData(["Comment": updateValue2])
+                    }
+                }
             }
-        }
+        )
+        self.present(alert, animated: true, completion: nil)
+        
+        
+        
     }
+    
     
     /*
      // MARK: - Navigation

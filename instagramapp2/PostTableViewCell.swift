@@ -20,6 +20,10 @@ class PostTableViewCell: UITableViewCell {
     
     @IBOutlet weak var captionLabel: UILabel!
     
+    @IBOutlet weak var textview: UITextView!
+    
+    @IBOutlet weak var commentbutton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -30,6 +34,8 @@ class PostTableViewCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
+    
+
     // PostDataの内容をセルに表示
     func setPostData(_ postData: PostData) {
         // 画像の表示
@@ -61,5 +67,12 @@ class PostTableViewCell: UITableViewCell {
             let buttonImage = UIImage(named: "like_none")
             self.likeButton.setImage(buttonImage, for: .normal)
         }
+        var allcomment = ""
+               //postData.commentsの中から要素をひとつずつ取り出すのを繰り返す、というのがcomment
+        for comment in postData.Comment{
+                       allcomment += comment
+                       self.textview.text = ("\(allcomment)\n")
+                      }
+
     }
 }
